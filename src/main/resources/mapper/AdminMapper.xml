@@ -69,7 +69,7 @@
     id, username, password, roles
   </sql>
   <select id="findByUsername" resultMap="BaseResultMap" parameterType="string">
-    select id, password, roles from admin where username = ${username}
+    select id, username, password, roles from video.admin where username = #{username}
   </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.me.pojo.AdminExample" >
     select

@@ -17,15 +17,20 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Admin login(String username, String password) {
+
+       /* AdminExample adminExample = new AdminExample();
+        AdminExample.Criteria criteria = adminExample.createCriteria();
+        criteria.andUsernameEqualTo(username);*/
+
+
         Admin admin = adminMapper.findByUsername(username);
-        if (admin == null) {
+        if (admin.getUsername() == null) {
             throw new RuntimeException("账号不能为空");
         }
 
         if (!admin.getPassword().equals(password)) {
             throw new RuntimeException("密码错误");
         }
-
 
         return admin;
     }
