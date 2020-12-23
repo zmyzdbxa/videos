@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.me.dao")
-@ServletComponentScan
+@MapperScan(basePackages = "com.me.dao")
 public class VideosApplication {
 
     public static void main(String[] args) {
