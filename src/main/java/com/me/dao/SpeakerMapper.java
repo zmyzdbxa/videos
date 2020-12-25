@@ -1,38 +1,26 @@
 package com.me.dao;
 
-import com.me.pojo.Speaker;
-import com.me.pojo.SpeakerExample;
 import java.util.List;
+
+import com.me.pojo.QueryVo;
+import com.me.pojo.Speaker;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SpeakerMapper {
-    int countByExample(SpeakerExample example);
 
-    int deleteByExample(SpeakerExample example);
+    List<Speaker> findAll(QueryVo queryVo);
 
-    int deleteByPrimaryKey(Integer id);
+    Integer count();
 
-    int insert(Speaker record);
+    List<Speaker> selectAll();
 
-    int insertSelective(Speaker record);
+    void deleteSpeakerById(int parseInt);
 
-    List<Speaker> selectByExampleWithBLOBs(SpeakerExample example);
+    void addSpeaker(Speaker speaker);
 
-    List<Speaker> selectByExample(SpeakerExample example);
+    Speaker selectById(int parseInt);
 
-    Speaker selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") Speaker record, @Param("example") SpeakerExample example);
-
-    int updateByExampleWithBLOBs(@Param("record") Speaker record, @Param("example") SpeakerExample example);
-
-    int updateByExample(@Param("record") Speaker record, @Param("example") SpeakerExample example);
-
-    int updateByPrimaryKeySelective(Speaker record);
-
-    int updateByPrimaryKeyWithBLOBs(Speaker record);
-
-    int updateByPrimaryKey(Speaker record);
+    void updateSpeaker(Speaker speaker);
 }

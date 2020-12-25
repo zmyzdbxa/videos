@@ -35,7 +35,7 @@
                     'primary': true,
                     'callback': function () {
                         var param = {"id": id};
-                        $.post("speakerDel", param, function (data) {
+                        $.post("${pageContext.request.contextPath}/speaker/speakerDel", param, function (data) {
                             if (data == 'success') {
                                 Confirm.show('温馨提示：', '删除成功');
                                 $(Obj).parent().parent().remove();
@@ -45,7 +45,8 @@
                         });
                     }
                 }
-            });
+            })
+            return false;
         }
     </script>
     <style type="text/css">
@@ -69,7 +70,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/video/list">视频管理</a></li>
                 <li class="active"><a href="${pageContext.request.contextPath}/speaker/showSpeakerList">主讲人管理</a></li>
-                <li><a href="${pageContext.request.contextPath}/showCourseList">课程管理</a></li>
+                <li><a href="${pageContext.request.contextPath}/course/showCourseList">课程管理</a></li>
 
 
             </ul>

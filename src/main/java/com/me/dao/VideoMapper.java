@@ -1,38 +1,25 @@
 package com.me.dao;
 
-import com.me.pojo.Video;
-import com.me.pojo.VideoExample;
 import java.util.List;
+
+import com.me.pojo.QueryVo;
+import com.me.pojo.Video;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 @Repository
 public interface VideoMapper {
-    int countByExample(VideoExample example);
 
-    int deleteByExample(VideoExample example);
+    List<Video> findAll(QueryVo queryVo);
 
-    int deleteByPrimaryKey(Integer id);
+    Integer count();
 
-    int insert(Video record);
+    void deleteVideo(int parseInt);
 
-    int insertSelective(Video record);
+    void addVideo(Video video);
 
-    List<Video> selectByExampleWithBLOBs(VideoExample example);
+    Video selectById(int id);
 
-    List<Video> selectByExample(VideoExample example);
-
-    Video selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") Video record, @Param("example") VideoExample example);
-
-    int updateByExampleWithBLOBs(@Param("record") Video record, @Param("example") VideoExample example);
-
-    int updateByExample(@Param("record") Video record, @Param("example") VideoExample example);
-
-    int updateByPrimaryKeySelective(Video record);
-
-    int updateByPrimaryKeyWithBLOBs(Video record);
-
-    int updateByPrimaryKey(Video record);
+    void updateVideo(Video video);
 }

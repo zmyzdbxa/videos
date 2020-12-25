@@ -2,9 +2,7 @@ package com.me.service.impl;
 
 import com.me.dao.AdminMapper;
 import com.me.pojo.Admin;
-import com.me.pojo.AdminExample;
 import com.me.service.AdminService;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

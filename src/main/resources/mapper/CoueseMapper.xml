@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.me.dao.CourseMapper">
+    <resultMap id="resultCourse" type="com.me.pojo.Course">
+        <id column="id" property="id"></id>
+        <result column="course_title" property="courseTitle"></result>
+        <result column="course_desc" property="courseDesc" jdbcType="LONGVARCHAR"></result>
+    </resultMap>
+
+    <resultMap id="ResultMapWithBLOBs" type="com.me.pojo.Course" extends="resultCourse" >
+        <result column="course_title" property="courseTitle" jdbcType="LONGVARCHAR"></result>
+    </resultMap>
+    <select id="findAll" resultMap="resultCourse">
+        select id, course_title, course_desc from course
+    </select>
+</mapper>
